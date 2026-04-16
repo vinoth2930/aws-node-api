@@ -26,14 +26,12 @@ app.get("/employees", async (req, res) => {
   try {
     let pool = await sql.connect(config);
 
-    let result = await pool.request().query(`
-      SELECT * FROM Employees
-    `);
+    let result = await pool.request().query("SELECT * FROM Employees");
 
-    res.json(result.recordset); // 👈 actual DB rows
+    res.json(result.recordset);
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Database error");
+    console.error("SQL ERROR:", err);  // 👈 IMPORTANT
+    res.status(500).send(err.message); // 👈 show real error
   }
 });
 
