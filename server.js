@@ -7,7 +7,7 @@ const app = express();
 const config = {
   user: "SA",
   password: "NewPass@123",
-  server: "13.201.84.164", // 👈 SQL EC2 PRIVATE IP
+  server: "172.31.34.227", // 👈 SQL EC2 PRIVATE IP
   database: "DemoDB",
   port: 1433,
   options: {
